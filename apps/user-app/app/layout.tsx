@@ -19,8 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        {/* <AppbarClient></AppbarClient> */}
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <div>
+            <AppbarClient></AppbarClient>
+            {children}
+          </div>
+        </body>
       </Providers>
     </html>
   );

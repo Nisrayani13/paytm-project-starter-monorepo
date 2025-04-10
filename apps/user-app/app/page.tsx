@@ -7,7 +7,7 @@ export default function Page(): JSX.Element {
   const session = useSession();
   return (
    <div>
-      <AppbarClient></AppbarClient>
+      User app
    </div>
   );
 }
