@@ -2,7 +2,26 @@ import bcrypt from "bcrypt";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
-import prisma from "../../../../packages/db/src";
+import prisma from "@repo/db/client";
+
+// Extend the built-in session types
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+      accountId?: string | null;
+    };
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    providerAccountId?: string;
+  }
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -91,7 +110,7 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, user, token }: any) {
       if (session?.user) {
-        session.user.id = token.id;
+        session.user.id = token.sub as string;
         session.user.accountId = token.providerAccountId || null;
       }
       return session;

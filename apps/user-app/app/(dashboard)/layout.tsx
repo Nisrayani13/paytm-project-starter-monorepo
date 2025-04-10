@@ -8,7 +8,7 @@ export default function DashboardLayout({
   return (
     <div className="flex gap-x-4">
       {/* Left */}
-      <div className="w-full max-w-[33.33%] lg:w-56 flex justify-start min-h-screen items-start border-r border-slate-300 px-4 pt-10">
+      <div className="w-full max-w-[33.33%] lg:w-56 flex justify-start items-start border-r border-slate-300 px-4 pt-10">
         <div className="flex flex-col gap-y-5">
           <SidebarItem renderIcon={<HomeIcon></HomeIcon>} text="Home" href="/dashboard"></SidebarItem>
           <SidebarItem renderIcon={<TransferIcon></TransferIcon>} text="Transfer" href="/transfer"></SidebarItem>
@@ -17,7 +17,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Right */}
-      <div>{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 }

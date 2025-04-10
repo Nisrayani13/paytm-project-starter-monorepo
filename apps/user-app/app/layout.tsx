@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>
-          <div>
+        <body className={`${inter.className} bg-[#DEDAD9]`}>
+          <div className="min-h-screen">
             <AppbarClient></AppbarClient>
             {children}
           </div>

@@ -13,7 +13,7 @@ export default function SidebarItem({renderIcon, text, href}:{renderIcon:React.R
 
     console.log("selected:",selected)
   return (
-    <div className={`flex items-center gap-x-2.5 cursor-pointer ${selected?"text-[#5841D6]" : "text-slate-500"}`} onClick={()=>{
+    <div className={`flex items-center gap-x-2.5 cursor-pointer ${selected?"text-heading" : "text-slate-500"}`} onClick={()=>{
         router.push(href)
     }}>
       <div>{renderIcon}</div>
